@@ -7,9 +7,6 @@ import {Decimal} from "codec/Decimal.sol";
 contract GraphQL is Script {
   using Decimal for uint;
 
-  event ResultSize(uint);
-  event ResultValue(address);
-
   function shell(bytes memory script, bytes memory filename) internal returns (bytes memory) {
     string[] memory args = new string[](3);
     args[0] = "bash";
@@ -37,11 +34,9 @@ contract GraphQL is Script {
     );
 
     uint resultSize = abi.decode(shell(bytes.concat("printf \"%.64x\" $(jq -r '", resultSelector, "|length' ", filename, ")"), ""), (uint));
-    emit ResultSize(resultSize);
     results = new address[](resultSize);
     for (uint i=0; i<resultSize;i++) {
       results[i] = abi.decode(shell(bytes.concat("cast --concat-hex 0x000000000000000000000000 $(jq -r '", resultSelector, "[", i.decimal(), "].", fieldName, "' ", filename, ")"), ""), (address));
-      emit ResultValue(results[i]);
     }
   }
 
