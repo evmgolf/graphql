@@ -7,7 +7,7 @@ import {Decimal} from "codec/Decimal.sol";
 contract GraphQL is Script {
   using Decimal for uint;
 
-  function shell(bytes memory script, bytes memory filename) internal returns (bytes memory) {
+  function shell(bytes memory script, bytes memory filename) public returns (bytes memory) {
     string[] memory args = new string[](3);
     args[0] = "bash";
     args[1] = "-c";
