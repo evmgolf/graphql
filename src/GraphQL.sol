@@ -21,7 +21,7 @@ contract GraphQL is Script {
     return vm.ffi(args);
   }
 
-  function queryManyAddresses(bytes memory url, bytes memory query, bytes memory entityName, bytes memory fieldName) internal returns (address[] memory results) {
+  function queryManyAddresses(bytes memory url, bytes memory query, bytes memory entityName, bytes memory fieldName) public returns (address[] memory results) {
     bytes memory filename = "result.json";
     bytes memory resultSelector = bytes.concat(".data.", entityName);
     
