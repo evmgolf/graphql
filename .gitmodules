@@ -4,3 +4,6 @@
 [submodule "lib/codec"]
 	path = lib/codec
 	url = https://github.com/evmgolf/codec
+[submodule "lib/bash"]
+	path = lib/bash
+	url = https://github.com/evmgolf/bash
