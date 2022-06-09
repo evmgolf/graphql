@@ -7,3 +7,6 @@
 [submodule "lib/bash"]
 	path = lib/bash
 	url = https://github.com/evmgolf/bash
+[submodule "lib/jsonquery"]
+	path = lib/jsonquery
+	url = https://github.com/evmgolf/jsonquery
